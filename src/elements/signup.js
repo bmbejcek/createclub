@@ -36,17 +36,17 @@ const MyForm = () => {
 
     <div>
          <div>
-            <form onSubmit={handleOnSubmit} style = {{justifyContent:`center`, display:`flex`}}>
+            <form className="form" onSubmit={handleOnSubmit} style = {{justifyContent:`left`, display:`flex`,paddingLeft:`40px`}}>
             <div className="form-group" style ={{display:`contents`}}>
-                <input style = {{width:`60%`, height:`20px`,textIndent:`10px`,border:`5px solid #f624af`}}type="email" name="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+                <input style = {{fontFamily:`Poppins`, width:`60%`, height:`20px`,textIndent:`10px`, background: `black`, color:`white`, borderColor:`black`,borderBottom:`5px solid white`}}type="email" name="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="hit me with that email"/>
             </div>
-            <button style = {{fontFamily:`Courier`, fontSize: `medium`, height:`25px`, overflow:`visible`, zIndex:`10`, marginLeft:`10px`}} type="submit" className="btn btn-primary"  disabled={serverState.submitting}>
+            <button style = {{fontFamily:`Poppins`, border:`black 0px solid`, borderBottom:`5px solid white`,color:`white`, background:`black`, fontSize: `medium`, height:`25px`, overflow:`visible`, zIndex:`10`, marginLeft:`10px`}} type="submit"  disabled={serverState.submitting}>
                 <b><u>Submit</u></b>
             </button>
             </form>
             <div style = {{width:`100%`}}>
             {serverState.status && (
-                <p style = {{fontFamily:`Courier`}} className={!serverState.status.ok ? "errorMsg" : ""}>
+                <p style = {{fontFamily:`Poppins`}} className={!serverState.status.ok ? "errorMsg" : ""}>
                 {serverState.status.msg}
                 </p>
             )}

@@ -9,7 +9,7 @@ const IndexPage = () => {
 <div className='hero'>
 <p className = 'intro' ><i>welcome to the</i> </p>
 <h1 className = 'header'> Make More Art Club!    <img style={{height:`3rem`, marginLeft:`auto`, marginRight:`auto`}} src={GIF} /></h1>
-<p className = 'subheader'><i>// A prompt a day to create for creation's sake.</i> </p>
+<p className = 'subheader'><i>[A prompt a day to create for creation's sake]</i> </p>
 <Signup/>
 </div>
 </div>
