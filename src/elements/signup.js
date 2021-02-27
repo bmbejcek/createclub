@@ -17,12 +17,12 @@ const MyForm = () => {
     const handleOnSubmit = e => {
       e.preventDefault();
       const form = e.target;
+      console.log(form);
       setServerState({ submitting: true });
-        fetch('/.netlify/functions/signup', {
+      console.log(form)
+      fetch('/.netlify/functions/hello-world', {
         method: "POST",
-        body: JSON.stringify({
-        email: new FormData(form),
-        })
+        data: new FormData(form)
       })
         .then(r => {
           handleServerResponse(true, "Thanks!", form);

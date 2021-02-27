@@ -1,9 +1,6 @@
 var plugins = [{
       plugin: require('/Users/brett/repos/createclub/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
       options: {"plugins":[]},
-    },{
-      plugin: require('/Users/brett/repos/createclub/node_modules/gatsby-plugin-sitemap/gatsby-ssr'),
-      options: {"plugins":[],"output":"/sitemap.xml","createLinkInHead":true},
     }]
 // During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [
