@@ -1,4 +1,5 @@
 import React, { useState }  from "react"
+import './../css/signup.css'
 const MyForm = () => {
 
     const [serverState, setServerState] = useState({
@@ -38,10 +39,10 @@ const MyForm = () => {
          <div>
             <form className="form" onSubmit={handleOnSubmit} style = {{justifyContent:`left`, display:`flex`,paddingLeft:`40px`}}>
             <div className="form-group" style ={{display:`contents`}}>
-                <input style = {{fontFamily:`Poppins`, width:`60%`, height:`20px`,textIndent:`10px`, background: `black`, color:`white`, borderColor:`black`,borderBottom:`5px solid white`}}type="email" name="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="hit me with that email"/>
+                <input style = {{fontFamily:`Poppins`, width:`60%`,background: `black`, color:`white`, borderColor:`black`,borderBottom:`5px solid white`}}type="email" name="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="hit me with that email"/>
             </div>
-            <button style = {{fontFamily:`Poppins`, border:`black 0px solid`, borderBottom:`5px solid white`,color:`white`, background:`black`, fontSize: `medium`, height:`25px`, overflow:`visible`, zIndex:`10`, marginLeft:`10px`}} type="submit"  disabled={serverState.submitting}>
-                <b><u>Submit</u></b>
+            <button style = {{fontFamily:`Poppins`, border:`black 0px none`,color:`white`, background:`black`, fontSize: `medium`, overflow:`visible`, zIndex:`10`, marginLeft:`10px`}} type="submit"  disabled={serverState.submitting}>
+                <b>Submit</b>
             </button>
             </form>
             <div style = {{width:`100%`}}>
