@@ -14,7 +14,7 @@ const Example = () => {
       dencrypt(values[i]);
 
       i = i === values.length - 1 ? 0 : i + 1;
-    }, 5000);
+    }, 4000);
 
     return () => clearInterval(action);
   }, []);

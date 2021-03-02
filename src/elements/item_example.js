@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { useDencrypt } from "use-dencrypt-effect";
 
-const values = ["cheese.", "toilet seats.", "sadness.", "time travel.", "dinosaurs.", "tennis shoes.", "headaches."];
+var values = ["cheese 🧀", "toilet seats 🚽", "sadness 😢", "time travel ⏱️", "dinosaurs 🦖", "tennis shoes 👟", "headaches 🤯", "monkeys 🐒", "lemonade 🍋", "arm wrestling 🤼", "love 💕", "the beach 🏖️", "Hollywood 🎬"];
 
 const Example = () => {
   const { result, dencrypt } = useDencrypt();
@@ -14,12 +14,13 @@ const Example = () => {
       dencrypt(values[i]);
 
       i = i === values.length - 1 ? 0 : i + 1;
-    }, 5000);
+    }, 4000);
 
     return () => clearInterval(action);
   }, []);
 
-  return <span style={{fontFamily:`Poppins`}}>{result}</span>;
+    return <span style={{fontFamily:`Poppins`}}>{result.length>0 ? result : 'Create a poem about athleisure 👟'}</span>;
+  
 };
 
 export default Example;
