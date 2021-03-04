@@ -4,7 +4,6 @@ body {
   padding: 0;
   width: 100%;
   min-height:100vh;
-  min-height: -webkit-fill-available;
   align-items: center;
   background: black;
   display:flex;
@@ -20,7 +19,7 @@ body {
   letter-spacing: 2px;
   font-family: 'Poppins', sans-serif;
   text-transform: uppercase;
-  padding: 40px;
+  padding: 10px;
   margin-bottom:0px;
   padding-bottom:0px;
   margin-top:0;
@@ -35,7 +34,7 @@ body {
   letter-spacing: 2px;
   font-family: 'Poppins', sans-serif;
   text-transform: uppercase;
-  padding: 40px;
+  padding: 10px;
   padding-top:20px;
   margin-top:0;
 }
@@ -48,7 +47,7 @@ body {
   letter-spacing: 2px;
   font-family: 'Poppins', sans-serif;
   text-transform: uppercase;
-  padding: 40px;
+  padding: 10px;
   margin-top:0;
   margin-bottom:0;
   padding-bottom: 0;
@@ -95,3 +94,5 @@ body {
     background-position: 0% 50%;
   }
 }
+
+*:focus {outline:none !important}
