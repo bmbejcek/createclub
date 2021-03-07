@@ -1,4 +1,4 @@
-const request = require("request");
+const fetch = require("node-fetch");
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 var async = require('async');
 
@@ -13,9 +13,10 @@ exports.handler = async (event, context, callback) => {
   const sheet = doc.sheetsByIndex[0];
   const body = JSON.parse(event.body)
   const addedRow = await sheet.addRow({
-      timestamp: new Date().toString(),
+      timestamp: new Date().getTime(),
       email: body.email
     });
+  const welcom_email = fetch("https://us-central1-create-more.cloudfunctions.net/welcome-email-public?email="+body.email)
   callback(null, {
           statusCode: 200,
           body: 'success!',
