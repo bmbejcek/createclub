@@ -2015,7 +2015,7 @@ var plugins = [{
   plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-google-analytics/gatsby-ssr */ "./node_modules/gatsby-plugin-google-analytics/gatsby-ssr.js"),
   options: {
     "plugins": [],
-    "trackingId": "UA-264744631",
+    "trackingId": "UA-191566630-1",
     "head": true,
     "anonymize": false,
     "respectDNT": false,

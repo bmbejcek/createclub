@@ -10,7 +10,7 @@ export default class Signup extends PureComponent {
   }
 
   componentDidMount() {
-    fetch("http://us-central1-create-more.cloudfunctions.net/get-random-challenge")
+    fetch("https://us-central1-create-more.cloudfunctions.net/get-random-challenge")
     .then( (response) => {
               return response.json() })
                   .then( (json) => {
@@ -24,7 +24,7 @@ export default class Signup extends PureComponent {
           category: "Reroll",
           action: "Success",
         })
-    fetch("http://us-central1-create-more.cloudfunctions.net/get-random-challenge")
+    fetch("https://us-central1-create-more.cloudfunctions.net/get-random-challenge")
         .then( (response) => {
               return response.json() })
                   .then( (json) => {

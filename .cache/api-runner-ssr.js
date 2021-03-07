@@ -9,7 +9,7 @@ var plugins = [{
     },{
       name: 'gatsby-plugin-google-analytics',
       plugin: require('/Users/brett/repos/createclub/node_modules/gatsby-plugin-google-analytics/gatsby-ssr'),
-      options: {"plugins":[],"trackingId":"UA-264744631","head":true,"anonymize":false,"respectDNT":false,"exclude":["localhost.*"],"siteSpeedSampleRate":100,"cookieDomain":"createmore.art","pageTransitionDelay":0},
+      options: {"plugins":[],"trackingId":"UA-191566630-1","head":true,"anonymize":false,"respectDNT":false,"exclude":["localhost.*"],"siteSpeedSampleRate":100,"cookieDomain":"createmore.art","pageTransitionDelay":0},
     },{
       name: 'gatsby-plugin-fullstory',
       plugin: require('/Users/brett/repos/createclub/node_modules/gatsby-plugin-fullstory/gatsby-ssr'),
