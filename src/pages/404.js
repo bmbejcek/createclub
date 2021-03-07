@@ -1,5 +1,5 @@
 import * as React from "react"
-import Main as './index.js'
+import Main from './index.js'
 // markup
 const NotFoundPage = () => {
   return (
