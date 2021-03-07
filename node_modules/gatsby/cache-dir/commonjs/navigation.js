@@ -25,20 +25,30 @@ var _emitter = _interopRequireDefault(require("./emitter"));
 
 var _routeAnnouncerProps = require("./route-announcer-props");
 
-var _router = require("@reach/router");
+var _reachRouter = require("@gatsbyjs/reach-router");
 
-var _history = require("@reach/router/lib/history");
+var _history = require("@gatsbyjs/reach-router/lib/history");
 
 var _gatsbyLink = require("gatsby-link");
 
 // Convert to a map for faster lookup in maybeRedirect()
-const redirectMap = _redirects.default.reduce((map, redirect) => {
-  map[redirect.fromPath] = redirect;
-  return map;
-}, {});
+const redirectMap = new Map();
+const redirectIgnoreCaseMap = new Map();
+
+_redirects.default.forEach(redirect => {
+  if (redirect.ignoreCase) {
+    redirectIgnoreCaseMap.set(redirect.fromPath, redirect);
+  } else {
+    redirectMap.set(redirect.fromPath, redirect);
+  }
+});
 
 function maybeRedirect(pathname) {
-  const redirect = redirectMap[pathname];
+  let redirect = redirectMap.get(pathname);
+
+  if (!redirect) {
+    redirect = redirectIgnoreCaseMap.get(pathname.toLowerCase());
+  }
 
   if (redirect != null) {
     if (process.env.NODE_ENV !== `production`) {
@@ -93,8 +103,13 @@ const navigate = (to, options = {}) => {
   let {
     pathname
   } = (0, _gatsbyLink.parsePath)(to);
-  const redirect = redirectMap[pathname]; // If we're redirecting, just replace the passed in pathname
+  let redirect = redirectMap.get(pathname);
+
+  if (!redirect) {
+    redirect = redirectIgnoreCaseMap.get(pathname.toLowerCase());
+  } // If we're redirecting, just replace the passed in pathname
   // to the one we want to redirect to.
+
 
   if (redirect) {
     to = redirect.toPath;
@@ -149,7 +164,7 @@ const navigate = (to, options = {}) => {
       }
     }
 
-    (0, _router.navigate)(to, options);
+    (0, _reachRouter.navigate)(to, options);
     clearTimeout(timeoutId);
   });
 };

@@ -5,21 +5,31 @@ import { useDencrypt } from "use-dencrypt-effect";
 const values = ["Create a", "Make a", "Craft a"];
 
 const Example = () => {
-  const { result, dencrypt } = useDencrypt();
+  const [result, setResult] = useDencrypt('Create a');
 
   React.useEffect(() => {
     let i = 0;
+    let run = true;
 
-    const action = setInterval(() => {
-      dencrypt(values[i]);
+    const loop = async () => {
+      while (run) {
+        await new Promise((resolve) => setTimeout(resolve, 5000));
+        await setResult(values[i]);
 
-      i = i === values.length - 1 ? 0 : i + 1;
-    }, 4000);
+        i = i === values.length - 1 ? 0 : i + 1;
+      }
+    };
 
-    return () => clearInterval(action);
-  }, []);
+    if (setResult) {
+      loop();
+    }
 
-  return <span style={{fontFamily:`Poppins`}}>{result}</span>;
+    return () => {
+      run = false;
+    };
+  }, [setResult]);
+
+    return <span style={{fontFamily:`Poppins`}}>{result}</span>;
+  
 };
-
 export default Example;
