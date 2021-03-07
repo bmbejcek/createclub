@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { PureComponent }  from "react"
 import './../css/index.css'
 import GIF from './../images/party.gif'
 import Signup from './../elements/signup.js'
@@ -6,7 +6,12 @@ import ArtExample from './../elements/art_example.js'
 import ItemExample from './../elements/item_example.js'
 import CreateExample from './../elements/create_example.js'
 
-const IndexPage = () => {
+export default class Index extends PureComponent {
+	componentDidMount() {
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+ }
+ render(){
   return (
     <div className="text-light" style={{width:`100%`, textAlign:`center`}}>
     <div id="main"/>
@@ -22,5 +27,4 @@ const IndexPage = () => {
 </div>
   )
 }
-
-export default IndexPage
+}
