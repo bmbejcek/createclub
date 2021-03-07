@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { useDencrypt } from "use-dencrypt-effect";
 
-const values = ["Create a", "Make a", "Produce a", "Design a"];
+const values = ["Create a", "Make a", "Craft a"];
 
 const Example = () => {
   const { result, dencrypt } = useDencrypt();

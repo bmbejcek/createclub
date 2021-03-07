@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:700');
+@import url('https://fonts.googleapis.com/css?family=Poppins:200');
 body {
   margin: 0;
   padding: 0;
@@ -8,7 +9,8 @@ body {
   background: black;
   display:flex;
   justify-content: center;
-  overflow-y:hidden;
+  overflow-x:hidden;
+  overflow-y:visible;
 }
 
 .header {
@@ -107,11 +109,14 @@ body {
   -ms-animation: fadeIn ease .2s;
 }
 
-.ReactModal__Overlay{
-  background:none!important;
-  max-width:700px;
-  inset:0px!important;
-
+.ReactModal__Content{
+  max-width:500px;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+  height:fit-content;
+  margin-top:auto;
+  margin-bottom: auto;
 }
 
 @keyframes fadeIn {
@@ -137,4 +142,15 @@ body {
 @-ms-keyframes fadeIn {
 0% {opacity:0;}
 100% {opacity:1;}
+}
+
+@media only screen and (max-width: 350px) {
+  .successDescription {
+    font-size: small;
+  }
+
+  .successHeader {
+    font-size: medium;
+    padding-top:20px;
+  }
 }

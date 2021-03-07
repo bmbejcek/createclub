@@ -11,7 +11,7 @@ const IndexPage = () => {
     <div className="text-light" style={{width:`100%`, textAlign:`center`}}>
     <div id="main"/>
 <div className='hero'>
-<p className = 'intro' ><i>welcome to the</i> </p>
+<p className = 'intro' style={{marginTop:`30px`}}><i>welcome to the</i> </p>
 <h1 className = 'header'> Create More Art Club!</h1>
 <p><img style={{height:`1rem`}}  src={GIF} /><img style={{height:`1rem`}}  src={GIF} /><img style={{height:`1rem`}}  src={GIF} /><img style={{height:`1rem`}}  src={GIF} /><img style={{height:`1rem`}}  src={GIF} /><img style={{height:`1rem`}}  src={GIF} /><img style={{height:`1rem`}}  src={GIF} /><img style={{height:`1rem`}}  src={GIF} /><img style={{height:`1rem`}}  src={GIF} /><img style={{height:`1rem`}}  src={GIF} /></p>
 <p className = 'subheader'>A weekly prompt to create something, randomized just for you:</p>

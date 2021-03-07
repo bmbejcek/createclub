@@ -26,7 +26,7 @@ export default class Signup extends PureComponent {
     success: false,
     submitting: false,
     message: "",
-    isModalOpen: true,
+    isModalOpen: false,
   }
 
   componentDidMount() {
@@ -51,6 +51,7 @@ export default class Signup extends PureComponent {
     const form = event.target;
     if (validator.validate(this.state.email, this.state.name)) {
       this.setState({submitting: true})
+      this.setState({message: ""})
       fetch('/.netlify/functions/signup', {
         method: "POST",
         body: JSON.stringify({
@@ -62,19 +63,18 @@ export default class Signup extends PureComponent {
       if(response.status==200){
         this.setState({success:true});
         form.reset();
-        this.setState({message:"Submitted!"})
+            this.setState({
+          isModalOpen: true,
+        })
       }
       else{
-        this.setState({message:"Something went wrong. Contact brett@brettbejcek.com for help."})
+        this.setState({message:"Something went wrong. Please try again."})
+
       }
   })
-
       
     }
     else {
-      if(this.state.name.length>0)
-        this.setState({message: "No spam please!"})
-      else
         this.setState({message: "Oops! Doesn't look like that is a valid email. Try again!"})
     };
 
@@ -86,29 +86,32 @@ export default class Signup extends PureComponent {
     <ReactModal
           isOpen={this.state.isModalOpen}
           onRequestClose={this.handleModalClose}
-          contentLabel="Example Modal In Gatsby"
+          shouldFocusAfterRender={true}
+          shouldCloseOnOverlayClick={true}
+          shouldCloseOnEsc={true}
+          shouldReturnFocusAfterClose={true}
         >
-          <h2 style={{fontFamily:`Poppins`}}>Congrats on joining the club!</h2>
-          <p style={{fontFamily:`Poppins`}}> This is going to be fantastic. We are going to create so many fun things. Check your email to make sure that you got your welcome email. If by some mistake they ended up in the Spam or Promotions Folders, be sure to move them over to your normal inbox!</p>
-          <img style={{maxHeight:`40vh`, width:`auto`}}  src={GIF} />
-          <button onClick={this.handleModalClose}>Close Modal</button>
+          <div style={{height:`10px`}}><button style={{fontFamily:`Poppins`, fontWeight:`700`, float:`right`, fontSize:`large`, background:`white`}} onClick={this.handleModalClose}>X</button></div>
+          <h2 className="successHeader" style={{fontFamily:`Poppins`, marginTop:`30px`}}>Congrats on joining the club!</h2>
+          <p className="successDescription" style={{fontFamily:`Poppins`}}> This is going to be fantastic. We are going to create! Check your email to make sure that you got your welcome email. If by some mistake they ended up in the Spam or Promotions Folders, be sure to move them over to your normal inbox!</p>
+          <div>
+          <img style={{maxHeight:`40vh`, maxWidth:`100%`}}  src={GIF} />
+          </div>
         </ReactModal>
     <div>
          <div>
             <form className="form" onSubmit={this.handleOnSubmit} style = {{justifyContent:`left`, display:`flex`,paddingLeft:`10px`}}>
             <div className="form-group" style ={{display:`contents`}}>
-                <input onChange={this.handleInputChange} style = {{fontFamily:`Poppins`, width:`80%`,background: `black`, color:`white`, borderColor:`black`,borderBottom:`5px solid white`}}type="email" name="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="hit me with that email"/>
+                <input onChange={this.handleInputChange} style = {{fontFamily:`Poppins`, width:`80%`,background: `black`, color:`white`, borderColor:`black`,borderBottom:`5px solid white`}}name="email" className="form-control" placeholder="hit me with that email"/>
             </div>
             <button style = {{fontFamily:`Poppins`, border:`black 0px none`,color:`white`, background:`black`, fontSize: `medium`, overflow:`visible`, zIndex:`10`, marginLeft:`10px`}} type="submit"  disabled={this.state.submitting}>
                 <b>{this.state.submitting ? 'Submitting' : 'Submit'}</b>
             </button>
             </form>
             <div style = {{width:`100%`}}>
-            {this.state.status && (
-                <p style = {{fontFamily:`Poppins`}} className={!this.status.ok ? "errorMsg" : ""}>
+                <p style = {{fontFamily:`Poppins`, minHeight:`40px`, fontSize:`small`, marginBottom:`0px`}}>
                 {this.state.message}
                 </p>
-            )}
             </div>
         </div>
       </div>

@@ -12,7 +12,7 @@ exports.handler = async (event, context, callback) => {
   await doc.loadInfo();  
   const sheet = doc.sheetsByIndex[0];
   const body = JSON.parse(event.body)
-  const addedRow = await sheet.addRow({
+  const addedRow =  sheet.addRow({
       timestamp: new Date().getTime(),
       email: body.email
     });
