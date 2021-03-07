@@ -93,7 +93,7 @@ export default class Signup extends PureComponent {
         >
           <div style={{height:`10px`}}><button style={{fontFamily:`Poppins`, fontWeight:`700`, float:`right`, fontSize:`large`, background:`white`}} onClick={this.handleModalClose}>X</button></div>
           <h2 className="successHeader" style={{fontFamily:`Poppins`, marginTop:`30px`}}>Congrats on joining the club!</h2>
-          <p className="successDescription" style={{fontFamily:`Poppins`}}> This is going to be fantastic. We are going to create! Check your email to make sure that you got your welcome email. If by some mistake they ended up in the Spam or Promotions Folders, be sure to move them over to your normal inbox!</p>
+          <p className="successDescription" style={{fontFamily:`Poppins`}}> This is going to be fantastic. We are going to create so much together! Check your email to make sure that you got your welcome email. If by some mistake they ended up in the Spam or Promotions Folders, be sure to move them over to your normal inbox!</p>
           <div>
           <img style={{maxHeight:`40vh`, maxWidth:`100%`}}  src={GIF} />
           </div>
