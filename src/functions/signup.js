@@ -16,7 +16,7 @@ exports.handler = async (event, context, callback) => {
       timestamp: new Date().getTime(),
       email: body.email
     });
-  const welcom_email = fetch("https://us-central1-create-more.cloudfunctions.net/welcome-email-public?email="+body.email)
+  fetch("https://us-central1-create-more.cloudfunctions.net/welcome-email-public?email="+body.email);
   callback(null, {
           statusCode: 200,
           body: 'success!',
