@@ -8,7 +8,7 @@ body {
   background: black;
   display:flex;
   justify-content: center;
-  overflow:hidden;
+  overflow-y:hidden;
 }
 
 .header {
@@ -37,6 +37,7 @@ body {
   padding: 10px;
   padding-top:20px;
   margin-top:0;
+  margin-bottom:40px;
 }
 
 .intro {
@@ -50,13 +51,13 @@ body {
   padding: 10px;
   margin-top:0;
   margin-bottom:0;
-  padding-bottom: 0;
+  padding-bottom:20px;
 }
 
 
 .hero {
   display:block;
-  max-width:800px;
+  max-width:500px;
   margin:20px;
   align-items: center;
   justify-content: center;
@@ -96,3 +97,44 @@ body {
 }
 
 *:focus {outline:none !important}
+
+.ReactModalPortal{
+  z-index:20;
+  animation: fadeIn ease .2s;
+  -webkit-animation: fadeIn ease .2s;
+  -moz-animation: fadeIn ease .2s;
+  -o-animation: fadeIn ease .2s;
+  -ms-animation: fadeIn ease .2s;
+}
+
+.ReactModal__Overlay{
+  background:none!important;
+  max-width:700px;
+  inset:0px!important;
+
+}
+
+@keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}

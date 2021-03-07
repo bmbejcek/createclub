@@ -1,5 +1,8 @@
 import React, { PureComponent }  from "react"
 import './../css/signup.css'
+import ReactModal from 'react-modal'
+import GIF from './../images/instructions.gif'
+
 var validator = require("./../js/validate.js");
 
     const handleOnSubmit = e => {
@@ -23,7 +26,17 @@ export default class Signup extends PureComponent {
     success: false,
     submitting: false,
     message: "",
+    isModalOpen: true,
   }
+
+  componentDidMount() {
+    ReactModal.setAppElement('#main')
+ }
+
+  handleModalClose = event => {
+    this.setState({ isModalOpen: false })
+  }
+
   handleInputChange = event => {
     const target = event.target
     const value = target.value
@@ -69,8 +82,17 @@ export default class Signup extends PureComponent {
   render()
   {
     return (
-        <div>
-
+    <div style={{textAlign:`center`}}>
+    <ReactModal
+          isOpen={this.state.isModalOpen}
+          onRequestClose={this.handleModalClose}
+          contentLabel="Example Modal In Gatsby"
+        >
+          <h2 style={{fontFamily:`Poppins`}}>Congrats on joining the club!</h2>
+          <p style={{fontFamily:`Poppins`}}> This is going to be fantastic. We are going to create so many fun things. Check your email to make sure that you got your welcome email. If by some mistake they ended up in the Spam or Promotions Folders, be sure to move them over to your normal inbox!</p>
+          <img style={{maxHeight:`40vh`, width:`auto`}}  src={GIF} />
+          <button onClick={this.handleModalClose}>Close Modal</button>
+        </ReactModal>
     <div>
          <div>
             <form className="form" onSubmit={this.handleOnSubmit} style = {{justifyContent:`left`, display:`flex`,paddingLeft:`10px`}}>
