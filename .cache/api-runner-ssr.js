@@ -6,6 +6,14 @@ var plugins = [{
       name: 'gatsby-plugin-manifest',
       plugin: require('/Users/brett/repos/createclub/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
       options: {"plugins":[],"name":"Create More Art Club","short_name":"ArtClub","start_url":"/","display":"standalone","icon":"src/images/icon.gif","legacy":true,"theme_color_in_head":true,"cache_busting_mode":"query","crossOrigin":"anonymous","include_favicon":true,"cacheDigest":"a973c4b429f2142c1ff559574c4018e4"},
+    },{
+      name: 'gatsby-plugin-google-analytics',
+      plugin: require('/Users/brett/repos/createclub/node_modules/gatsby-plugin-google-analytics/gatsby-ssr'),
+      options: {"plugins":[],"trackingId":"UA-264744631","head":true,"anonymize":false,"respectDNT":false,"exclude":["localhost.*"],"siteSpeedSampleRate":100,"cookieDomain":"createmore.art","pageTransitionDelay":0},
+    },{
+      name: 'gatsby-plugin-fullstory',
+      plugin: require('/Users/brett/repos/createclub/node_modules/gatsby-plugin-fullstory/gatsby-ssr'),
+      options: {"plugins":[],"fs_org":"R3F68"},
     }]
 // During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [

@@ -1,5 +1,6 @@
 import React, { PureComponent }  from "react"
 import './../css/index.css'
+import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
 export default class Signup extends PureComponent {
 
@@ -19,6 +20,10 @@ export default class Signup extends PureComponent {
 
   reRoll = event => {
     this.setState({challenge: "Getting a different challenge for you...", fetching:true})
+    trackCustomEvent({
+          category: "Reroll",
+          action: "Success",
+        })
     fetch("http://us-central1-create-more.cloudfunctions.net/get-random-challenge")
         .then( (response) => {
               return response.json() })

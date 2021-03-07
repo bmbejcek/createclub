@@ -28,7 +28,6 @@ const Example = () => {
       run = false;
     };
   }, [setResult]);
-  console.log(result)
 
     return <span style={{fontFamily:`Poppins`}}>{result}</span>;
   

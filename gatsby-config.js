@@ -24,5 +24,26 @@ module.exports = {
         icon: "src/images/icon.gif", // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-264744631",
+        head: true,
+        // Setting this parameter is optional
+        anonymize: false,
+        // Setting this parameter is also optional
+        respectDNT: false,
+        // Avoids sending pageview hits from custom paths
+        exclude: ["localhost.*"],
+        siteSpeedSampleRate: 100,
+        cookieDomain: "createmore.art",
+      },
+    },
+    {
+      resolve: `gatsby-plugin-fullstory`,
+      options: {
+        fs_org: 'R3F68',
+      },
+    }
   ],
 };

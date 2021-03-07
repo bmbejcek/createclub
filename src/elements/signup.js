@@ -2,6 +2,8 @@ import React, { PureComponent }  from "react"
 import './../css/signup.css'
 import ReactModal from 'react-modal'
 import GIF from './../images/instructions.gif'
+import { trackCustomEvent } from "gatsby-plugin-google-analytics"
+
 
 var validator = require("./../js/validate.js");
 
@@ -62,6 +64,10 @@ export default class Signup extends PureComponent {
       this.setState({submitting:false})
       if(response.status==200){
         this.setState({success:true});
+        trackCustomEvent({
+          category: "Sign Up",
+          action: "Success",
+        })
         form.reset();
             this.setState({
           isModalOpen: true,
@@ -76,6 +82,10 @@ export default class Signup extends PureComponent {
     }
     else {
         this.setState({message: "Oops! Doesn't look like that is a valid email. Try again!"})
+        trackCustomEvent({
+          category: "Sign Up",
+          action: "Invalid Email",
+        })
     };
 
   }
