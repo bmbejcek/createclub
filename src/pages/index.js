@@ -3,9 +3,7 @@ import { StaticQuery, graphql } from "gatsby"
 import './../css/index.css'
 import GIF from './../images/party.gif'
 import Signup from './../elements/signup.js'
-import ArtExample from './../elements/art_example.js'
-import ItemExample from './../elements/item_example.js'
-import CreateExample from './../elements/create_example.js'
+import Example from './../elements/example.js'
 import { Helmet } from "react-helmet"
 
 
@@ -52,7 +50,7 @@ document.documentElement.style.setProperty('--vh', `${vh}px`);
 <h1 className = 'header'> Create More Art Club!</h1>
 <p><img style={{height:`1rem`}}  src={GIF} /><img style={{height:`1rem`}}  src={GIF} /><img style={{height:`1rem`}}  src={GIF} /><img style={{height:`1rem`}}  src={GIF} /><img style={{height:`1rem`}}  src={GIF} /><img style={{height:`1rem`}}  src={GIF} /><img style={{height:`1rem`}}  src={GIF} /><img style={{height:`1rem`}}  src={GIF} /><img style={{height:`1rem`}}  src={GIF} /><img style={{height:`1rem`}}  src={GIF} /></p>
 <p className = 'subheader'>A weekly prompt to create something, randomized just for you:</p>
-<div style={{paddingLeft:`10px`, fontFamily:`Poppins`, marginBottom:`0px`, minHeight:`80px`}}>"<CreateExample/> <ArtExample/> <ItemExample/>"</div>
+<div style={{paddingLeft:`10px`, fontFamily:`Poppins`, marginBottom:`0px`, minHeight:`80px`}}>"<Example/>"</div>
 <Signup/>
 
 </div>
