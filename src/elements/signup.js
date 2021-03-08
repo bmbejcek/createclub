@@ -7,20 +7,6 @@ import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
 var validator = require("./../js/validate.js");
 
-    const handleOnSubmit = e => {
-      
-      const form = e.target;
-      console.log(e.target)
-      const f = new FormData(form)
-      console.log(f)
-
-      fetch('/.netlify/functions/signup', {
-        method: "POST",
-        body: new FormData(form)
-      })
-        
-    };
-
 export default class Signup extends PureComponent {
 
   state = {
@@ -59,25 +45,21 @@ export default class Signup extends PureComponent {
         body: JSON.stringify({
           email: this.state.email,
         })
-      }).then((response) => {
-        console.log(response);
-      this.setState({submitting:false})
-      if(response.status==200){
-        this.setState({success:true});
-        trackCustomEvent({
-          category: "Sign Up",
-          action: "Success",
-        })
-        form.reset();
-            this.setState({
-          isModalOpen: true,
-        })
-      }
-      else{
-        this.setState({message:"Something went wrong. Please try again."})
+      })
 
+    setTimeout(
+      function() {
+      this.setState({submitting:false})
+      this.setState({success:true});
+      trackCustomEvent({
+            category: "Sign Up",
+            action: "Success",
+          });
+      form.reset();
+      this.setState({isModalOpen: true})
       }
-  })
+    .bind(this),
+    1500);
       
     }
     else {
