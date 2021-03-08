@@ -5,7 +5,7 @@ import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 export default class Signup extends PureComponent {
 
   state = {
-    "challenge":"Getting a different challenge for you...",
+    "challenge":"Getting a different challenge for you...please wait 5 seconds",
     "fetching":true
   }
 
